@@ -1,0 +1,157 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    title Elm vs React
+
+    link(rel='stylesheet', type='text/css', href='build/build.css')
+
+  body
+
+    article
+
+      section(data-bespoke-hash='intro')
+        h1 Elm vs React
+
+      section
+        h1 Apple vs Orange
+
+      section(data-bespoke-hash='apple-vs-orange')
+        img(src='images/apple-vs-orange.png' width=500)
+        .red-cross.bullet
+
+      section
+        h2.bullet Cognitive bias
+        h3.bullet Framing effect
+
+      section
+        p Actual title:
+        h1 Building UI (GUI)
+
+      section
+        h1 HTML
+
+      section
+        h2 When new data arrives,<br>how do you update the UI?
+
+      section
+        h1.bullet Data binding
+        h2.bullet binds UI elements to an application domain model
+        h2.bullet Observer pattern
+
+      section
+        h2 How do we perform data binding?
+
+      section
+        h2 Object.observe
+        ul
+          li Simplifies binding <b>mutable data</b> to a <b>stateful DOM</b>
+          li
+            pre
+              code.language-javascript.
+                var obj = {};
+
+                Object.observe(obj, function(changes) {
+                  console.log(changes);
+                });
+
+      section(data-bespoke-hash='tweet')
+        img(src='images/object-observe-tweet.png' width=500 title='Back when Object.observe was first announced, I was so excited. Today I’d much rather have proper support for immutable data structures. - PASCAL HARTIG, TODOMVC')
+
+      section
+        img(src='images/functional-programming.jpg')
+
+      section
+        img(src='images/functional-programming-google-trends.png' width='100%')
+
+      section
+        img(src='images/functional-xkcd.png')
+
+      section
+        h2.bullet Immutability
+        h2.bullet Composability
+        h2.bullet Declarativeness
+
+      section
+        h1.bullet The DOM
+        br
+        ul
+          li Mutable
+          li Hard to manage
+          li Inefficient
+
+      //- section
+      //-   blockquote
+      //-     “The problem with object-oriented languages is they’ve got all this implicit environment that they carry around with them. You wanted a banana but what you got was a gorilla holding the banana and the entire jungle.”
+
+      section
+        h2 What if we treat the browser as rendering layer?
+
+      section
+        blockquote
+          “If you treat the browser as a remote rendering engine and stop treating it as a place to query and store crap, everything gets faster.”
+
+      section
+        h2 VIRTUAL DOM
+
+      section
+        h3
+          span.bullet VIRTUAL DOM
+          span.bullet=" == "
+          span.bullet STATELESS DOM
+
+      //- section
+      //-   h2 Benefits of virtual DOM
+
+      section
+        img(src='images/reactjs.png' width=200)
+        h2.bullet React
+        h3.bullet A JavaScript library for building UIs
+        br
+        ul
+          li Declarative
+          li Component-based
+          li "Learn Once, Write Anywhere"
+
+      section
+        blockquote
+          “Simply express how your app should look<br>at any given point in time, and React will automatically manage all UI updates”
+
+      //- section
+      //-   h2 JavaScript is the new C
+
+      //- section
+      //-   h2.bullet What about JavaScript?
+      //-   ul
+      //-     li lack of standard library
+      //-     li mutability doesn't help
+      //-     li modifiying/querying is slow
+
+      section
+        img(src='images/clojure-logo.png' width=200)
+        h2 OM
+        h3 React + ClojureScript
+
+      section(data-bespoke-hash='elm')
+        img(src='images/elm-logo.png' width=600)
+        //- h2 Elm
+        //- p - in a -
+        //- h2 single, <big>immutable</big> object
+
+      section
+        h2 Entire UI state
+        p - in a -
+        h2 single, <big>immutable</big> object
+
+      //- section
+      //-   ul
+      //-     li Creating a virtual DOM in JavaScript is cheap compared to manipulating the DOM directly.
+
+      section
+        h1.bullet Thank you!
+        br
+        bt
+        h2.bullet Questions?
+
+    script(src='build/build.js')
