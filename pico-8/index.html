@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My talk</title>
+  <style>
+    @font-face {
+      font-family: "PICO-8";
+      src: url("assets/PICO-8.ttf");
+    }
+
+    :root {
+      --picoblue: #090f1d;
+      --picopurple: #090115;
+      --picopink: #572b38;
+      --picolilla: #432b4e;
+      --piggypink: #fb6688;
+      --textblack: #333;
+      --textwhite: #e0e0e0;
+      --textpink: #fab;
+      --picobeige: #fed;
+      --textyellow: #fc3;
+      --textazure: #7cf;
+      --textgray: #aaa;
+    }
+
+    body {
+      background-color: var(--picoblue);
+      font-family: 'PICO-8', monospace;
+      font-size: 1.9vw;
+      color: var(--textwhite);
+    }
+
+    section {
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      visibility: hidden;
+      transform:
+        translate(0, -16px)
+        rotateY(-16deg);
+
+      transition:
+        transform 2.44s ease-out,
+        opacity 0.88s ease-in,
+        visibility 1.66s;
+
+      font-smooth: never;
+      -webkit-font-smoothing: none;
+    }
+
+    section.focused {
+      opacity: 1;
+      visibility: visible;
+      transform:
+        translate(0, 0)
+        rotateY(0deg);
+    }
+
+    section:nth-of-type(1) h1 {
+      position: relative;
+      font-size: 0.975rem;
+      top: 30px;
+      right: 20px;
+    }
+
+    section:nth-of-type(2) h1 {
+      color: var(--textpink);
+    }
+
+    .centered-slide {
+      display: flex;
+      align-items: center;
+      align-content: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    dl {
+      width: 50vw;
+    }
+    dd {
+      float: right;
+      color: var(--textgray);
+    }
+    dt {
+      float: left;
+      clear: both;
+      margin-bottom: 1.5rem;
+    }
+
+  </style>
+</head>
+<body>
+  <section class="centered-slide">
+    <h1>An introduction to</h1>
+    <img src="assets/pico8_logo_vector.png" alt="" />
+  </section>
+
+  <section class="centered-slide">
+    <h1>Specifications</h1>
+    <dl>
+      <dt>Display</dt>
+      <dd>128x128 16 colours</dd>
+
+      <dt>Cartridge Size</dt>
+      <dd>32k</dd>
+
+      <dt>Sound</dt>
+      <dd>4 channel chip blerps</dd>
+
+      <dt>Code</dt>
+      <dd>Lua</dd>
+
+      <dt>Sprites</dt>
+      <dd>256 8x8 sprites</dd>
+
+      <dt>Map</dt>
+      <dd>128x32 cels</dd>
+    </dl>
+  </section>
+
+  <script>
+    const first = document.querySelector('section:first-of-type')
+    const last = document.querySelector('section:last-of-type')
+
+    show(first)
+
+    document.addEventListener('keyup', e => {
+      const focused = document.querySelector('.focused')
+
+      switch (e.key) {
+        case 'ArrowUp':
+        case 'ArrowLeft': // back / previous
+          const prev = focused.previousElementSibling
+          hide(focused)
+          prev ? show(prev) : show(last)
+          break
+
+        case 'ArrowDown':
+        case 'ArrowRight': // forward / next
+          const next = focused.nextElementSibling
+          hide(focused)
+          next && next.tagName == 'SECTION' ? show(next) : show(first)
+      }
+    })
+
+    function show(el) {
+      el.classList.add('focused')
+    }
+
+    function hide(el) {
+      el.classList.remove('focused')
+    }
+  </script>
+</body>
+</html>
