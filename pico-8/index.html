@@ -31,6 +31,11 @@
       color: var(--textwhite);
     }
 
+    img {
+      max-width: 100vw;
+      max-height: 100vh;
+    }
+
     section {
       width: 100vw;
       height: 100vh;
@@ -60,14 +65,14 @@
         rotateY(0deg);
     }
 
-    section:nth-of-type(1) h1 {
+    section.intro h1 {
       position: relative;
       font-size: 0.975rem;
       top: 30px;
       right: 20px;
     }
 
-    section:nth-of-type(2) h1 {
+    section.specs h1 {
       color: var(--textpink);
     }
 
@@ -95,12 +100,12 @@
   </style>
 </head>
 <body>
-  <section class="centered-slide">
+  <section class="centered-slide intro">
     <h1>An introduction to</h1>
     <img src="assets/pico8_logo_vector.png" alt="" />
   </section>
 
-  <section class="centered-slide">
+  <section class="centered-slide specs">
     <h1>Specifications</h1>
     <dl>
       <dt>Display</dt>
@@ -121,6 +126,18 @@
       <dt>Map</dt>
       <dd>128x32 cels</dd>
     </dl>
+  </section>
+
+  <section class="centered-slide" style="background-color: #080808">
+    <img src="assets/c64.jpg" alt="" />
+  </section>
+
+  <section class="centered-slide" style="background-color: #14150d">
+    <img src="assets/c64-tape.jpg" alt="" />
+  </section>
+
+  <section class="centered-slide" style="background-color: rgb(72, 52, 53)">
+    <img src="assets/gameboy-carts.jpg" alt="" />
   </section>
 
   <script>
