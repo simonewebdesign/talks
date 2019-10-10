@@ -15,6 +15,7 @@
       --picopink: #572b38;
       --picolilla: #432b4e;
       --piggypink: #fb6688;
+
       --textblack: #333;
       --textwhite: #e0e0e0;
       --textpink: #fab;
@@ -22,6 +23,24 @@
       --textyellow: #fc3;
       --textazure: #7cf;
       --textgray: #aaa;
+
+      /* in-game colours (in order from 0..15) */
+      /* --black: #000; */
+      --gameblue: #1d2b53;
+      --gamemagenta: #7e2553;
+      --gamegreen: #008751;
+      --gamebrown: #ab5236;
+      --gamegray: #5f574f;
+      --gamelightgray: #c2c3c7;
+      /* --white: #fff; */
+      --gamered: #ff014d;
+      --gameorange: #ffa301;
+      --gameyellow: #fff023;
+      --gamelightgreen: #01e756;
+      --gameazure: #29adff;
+      --gamepurple: #84769c;
+      --gamepink: #ff77a8;
+      --gamepeach: #fca;
     }
 
     body {
@@ -85,7 +104,7 @@
     }
 
     dl {
-      width: 50vw;
+      width: 70vw;
     }
     dd {
       float: right;
@@ -96,7 +115,43 @@
       clear: both;
       margin-bottom: 1.5rem;
     }
+    .colors :nth-child(1) { background-color: black }
+    .colors :nth-child(2) { background-color: var(--gameblue) }
+    .colors :nth-child(3) { background-color: var(--gamemagenta) }
+    .colors :nth-child(4) { background-color: var(--gamegreen) }
+    .colors :nth-child(5) { background-color: var(--gamebrown) }
+    .colors :nth-child(6) { background-color: var(--gamegray) }
+    .colors :nth-child(7) { background-color: var(--gamelightgray) }
+    .colors :nth-child(8) { background-color: white }
+    .colors :nth-child(9) { background-color: var(--gamered) }
+    .colors :nth-child(10) { background-color: var(--gameorange) }
+    .colors :nth-child(11) { background-color: var(--gameyellow) }
+    .colors :nth-child(12) { background-color: var(--gamelightgreen) }
+    .colors :nth-child(13) { background-color: var(--gameazure) }
+    .colors :nth-child(14) { background-color: var(--gamepurple) }
+    .colors :nth-child(15) { background-color: var(--gamepink) }
+    .colors :nth-child(16) { background-color: var(--gamepeach) }
+    .colors :nth-child(-n+5) { color: white }
+    .colors :nth-child(n+6) { color: black }
+    .colors {
+      display: grid;
+      grid-column-start: 3;
+      grid-template: repeat(4, 12.5vw) / repeat(4, 12.5%);
+      align-content: center; /* vertically */
+      justify-content: center; /* horizontally */
+    }
 
+    .colors div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media screen and (min-aspect-ratio: 8/5) {
+      .colors {
+        grid-template: 12.5vw 12.5vw / repeat(8, 12.5%);
+      }
+    }
   </style>
 </head>
 <body>
@@ -108,28 +163,8 @@
   <section class="centered-slide specs">
     <h1>Specifications</h1>
     <dl>
-      <dt>Display</dt>
-      <dd>128x128 16 colours</dd>
-
-      <dt>Cartridge Size</dt>
-      <dd>32k</dd>
-
-      <dt>Sound</dt>
-      <dd>4 channel chip blerps</dd>
-
-      <dt>Code</dt>
-      <dd>Lua</dd>
-
-      <dt>Sprites</dt>
-      <dd>256 8x8 sprites</dd>
-
-      <dt>Map</dt>
-      <dd>128x32 cels</dd>
-
-      <hr />
-
       <dt>display</dt>
-      <dd>128x128, fixed 16 colour palette</dd>
+      <dd>128x128 16 colours</dd>
 
       <dt>input</dt>
       <dd>6 buttons</dd>
@@ -141,15 +176,34 @@
       <dd>4 channel, 64 definable chip blerps</dd>
 
       <dt>code</dt>
-      <dd>lua, max 8192 tokens of code</dd>
+      <dd>Lua, max 8192 tokens</dd>
 
       <dt>sprites</dt>
-      <dd>single bank of 128 8x8 sprites + 128 shared</dd>
+      <dd>256 8x8 sprites (128 shared)</dd>
 
       <dt>map</dt>
       <dd>128x32 8-bit cels + 128x32 shared</dd>
 
     </dl>
+  </section>
+
+  <section class="colors">
+    <div>0</div>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+    <div>10</div>
+    <div>11</div>
+    <div>12</div>
+    <div>13</div>
+    <div>14</div>
+    <div>15</div>
   </section>
 
   <section class="centered-slide" style="background-color: #080808">
