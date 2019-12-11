@@ -95,7 +95,7 @@
       right: 20px;
     }
 
-    section.specs h1 {
+    section:not(.intro) h1 {
       color: var(--textpink);
     }
 
@@ -105,6 +105,16 @@
       align-content: center;
       justify-content: center;
       flex-direction: column;
+
+      /* text-align: center; */
+    }
+
+    .centered-slide h1 {
+      text-align: center;
+    }
+
+    .centered-text {
+      text-align: center;
     }
 
     dl {
@@ -119,6 +129,24 @@
       clear: both;
       margin-bottom: 1.5rem;
     }
+
+    p {
+      line-height: 150%;
+    }
+
+    li {
+      margin-bottom: 1.5rem;
+      line-height: 150%;
+    }
+
+    video {
+      outline: none;
+    }
+
+    .mono {
+      font-family: monospace;
+    }
+
     .colors :nth-child(1) { background-color: black }
     .colors :nth-child(2) { background-color: var(--gameblue) }
     .colors :nth-child(3) { background-color: var(--gamemagenta) }
@@ -151,11 +179,24 @@
       justify-content: center;
     }
 
+    .color-channels {
+      text-align: center;
+    }
+
+    .color-channels span {
+      font-size: 6rem;
+    }
+
     @media screen and (min-aspect-ratio: 8/5) {
       .colors {
         grid-template: 12.5vw 12.5vw / repeat(8, 12.5%);
       }
     }
+
+    .ca { color: white; opacity: 0.5; }
+    .cr { color:  var(--gamered) }
+    .cg { color:  var(--gamelightgreen) }
+    .cb { color:  var(--gameazure) }
   </style>
 </head>
 <body>
@@ -163,6 +204,68 @@
     <h1>An introduction to</h1>
     <img src="assets/pico8_logo_vector.png" alt="" />
   </section>
+
+
+  <section class="centered-slide" style="background-color: #080808">
+    <img src="assets/c64.jpg" alt="" />
+  </section>
+
+
+  <section class="centered-slide">
+    <video src="assets/c64-basic.mp4" muted controls></video>
+  </section>
+
+
+  <section class="centered-slide" style="background-color: #14150d">
+    <img src="assets/c64-tape.jpg" alt="" />
+  </section>
+
+
+  <section class="centered-slide" style="background-color: rgb(72, 52, 53)">
+    <img src="assets/gameboy-carts.jpg" alt="" />
+  </section>
+
+
+  <section class="centered-slide">
+      <h1>.p8.png file format</h1>
+
+      <img src="assets/jelpi.p8.png" />
+
+      <p>this is a PICO-8 cartridge</p>
+
+      <p class="centered-text">spritesheet, map, flags, music, sound effects<br /> and code are embedded in it</p>
+  </section>
+
+
+  <section class="centered-slide">
+    <h1>Steganography</h1>
+     <small class="mono" style="margin-top: -1rem">(/ˌstɛɡəˈnɒɡrəfi/)</small>
+     <p>The practice of concealing a message within another message.</p>
+  </section>
+
+
+  <section class="centered-slide">
+    <h1>Least Significant Bit (LSB) encoding</h1>
+
+    <div class="color-channels">
+      <h3>PNG Color Channels</h3>
+      <span class="ca">A</span><span class="cr">R</span><span class="cg">G</span><span class="cb">B</span>
+    </div>
+    <br/>
+    <br/>
+    <p style="color: var(--textyellow)">cart_pic_size = 160 x 205 = 32,800</p>
+  </section>
+
+
+  <section class="centered-slide">
+    <h1>Lempel–Ziv–Welch (LZW) lossless data compression algorithm</h1>
+    <ul>
+      <li>became the first widely used universal data compression method</li>
+      <li>can compress a large English text file to about half its original size</li>
+      <li>used in gif</li>
+    </ul>
+  </section>
+
 
   <section class="centered-slide specs">
     <h1>Specifications</h1>
@@ -187,9 +290,17 @@
 
       <dt>map</dt>
       <dd>128x32 8-bit cels + 128x32 shared</dd>
-
     </dl>
   </section>
+
+  <section class="centered-slide">
+    <a href="https://www.lexaloffle.com/bbs/?tid=2145" target="_blank">Celeste</a>
+  </section>
+
+  <section class="centered-slide">
+    <video src="assets/celeste-trailer-ps4.mp4" controls></video>
+  </section>
+
 
   <section class="colors">
     <div>0</div>
@@ -208,26 +319,6 @@
     <div>13</div>
     <div>14</div>
     <div>15</div>
-  </section>
-
-  <section class="centered-slide" style="background-color: #080808">
-    <img src="assets/c64.jpg" alt="" />
-  </section>
-
-  <section class="centered-slide" style="background-color: #14150d">
-    <img src="assets/c64-tape.jpg" alt="" />
-  </section>
-
-  <section class="centered-slide" style="background-color: rgb(72, 52, 53)">
-    <img src="assets/gameboy-carts.jpg" alt="" />
-  </section>
-
-  <section class="centered-slide">
-    <video src="assets/c64-basic.mp4" muted controls></video>
-  </section>
-
-  <section class="centered-slide">
-    <video src="assets/celeste-clip.mp4" controls></video>
   </section>
 
   <script>
