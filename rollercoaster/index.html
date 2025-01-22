@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Framework Rollercoaster</title>
+  <style>
+    body {
+      font-family: "helvetica neue", roboto, Arial, sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 6rem;
+    }
+
+    section {
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .66s;
+    }
+
+    img {
+      max-height: 100vh;
+      max-width: 100%;
+    }
+
+    .focused {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .centered {
+      display: flex;
+      align-items: center;
+      align-content: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+  </style>
+</head>
+<body>
+  <section class="centered">
+    <h1>The Framework roller coaster<br><span style="font-size: 200%">🎢</span></h1>
+  </section>
+
+  <section class="centered">
+    <img src="images/friday-excited.gif" style="transform:scale(2)">
+  </section>
+
+  <section class="centered">
+    <img src="images/this-is-fun.png" style="transform:scale(1.3)">
+  </section>
+
+  <section class="centered">
+    <img src="images/when-they-ask-for-tags.jpeg">
+  </section>
+
+  <section class="centered">
+    <img src="images/framework.png">
+  </section>
+
+  <section class="centered">
+    <img src="images/felt-like-i-was-already-at-the-top.png">
+  </section>
+
+  <section class="centered">
+    <img src="images/keanu-tags-have-to-work-with-themes.jpeg">
+  </section>
+
+  <section class="centered">
+    <img src="images/scared-kid.jpg">
+    <!-- this is much harder than I thought -->
+  </section>
+
+  <section class="centered">
+    <img src="images/now-that-is-high-quality-work.jpeg" style="transform:scale(2)">
+  </section>
+
+  <section class="centered">
+    <img src="images/internal-framework.png">
+  </section>
+
+  <section class="centered">
+    <img src="images/thats-too-easy.jpeg">
+    <!-- almost too easy -->
+  </section>
+
+  <section class="centered">
+    <img src="images/freaked.webp">
+  </section>
+
+  <section class="centered">
+    <img src="images/grumpy.jpg" style="transform:scale(1.3)">
+  </section>
+
+  <section class="centered">
+    <div style="width: 75%; font-size: 200%">
+      <h2>The Dunning-Kruger effect</h2>
+      <p>"People tend to overestimate their own competence at a task, and the worse they are at it the more they overestimate."</p>
+    </div>
+  </section>
+
+  <section class="centered">
+    <div style="width: 75%; font-size: 200%">
+      <!-- things are not as simple as they seem at first -->
+      <h3>Software estimates are hard.</h3>
+    </div>
+  </section>
+
+  <section class="centered">
+    <img src="images/we-did-it.jpeg">
+  </section>
+
+  <section class="centered">
+    <p style="font-size: 180%; width: 300px; text-align: left;margin-bottom: 10px">
+      Me leaving work
+      <br>the day before holiday
+    </p>
+    <img src="images/kid.gif">
+  </section>
+
+  <script>
+    const first = document.querySelector('section:first-of-type')
+    const last = document.querySelector('section:last-of-type')
+
+    show(first)
+
+    document.addEventListener('keyup', e => {
+      const focused = document.querySelector('.focused')
+
+      switch (e.key) {
+        case 'ArrowUp':
+        case 'ArrowLeft': // back / previous
+          const prev = focused.previousElementSibling
+          hide(focused)
+          prev ? show(prev) : show(last)
+          break
+
+        case 'ArrowDown':
+        case 'ArrowRight': // forward / next
+          const next = focused.nextElementSibling
+          hide(focused)
+          next && next.tagName == 'SECTION' ? show(next) : show(first)
+      }
+    })
+
+    function show(el) {
+      el.classList.add('focused')
+    }
+
+    function hide(el) {
+      el.classList.remove('focused')
+    }
+  </script>
+</body>
+</html>
